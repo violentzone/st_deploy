@@ -196,7 +196,8 @@ def baseline_view():
 			"overflow-wrap": "anywhere"
 		},
 			"text": {
-				"font-size": "3em"}}, on_click=inactivate)
+				"font-size": "2em",
+				"overflow-wrap": "anywhere"}}, on_click=inactivate)
 
 	st.write('---')
 

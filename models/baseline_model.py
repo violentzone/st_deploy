@@ -185,14 +185,18 @@ def baseline_view():
 		encoded = base64.b64encode(data)
 	data = "data:image/png;base64," + encoded.decode("utf-8")
 
-	hasClicked = card('Estimated Hazard Ratio', image=data, text=card_value, styles={"card": {
-		"width": "40%",
-		"height": "300px",
-		"border-radius": "60px",
-		"overflow-wrap": "anywhere"
-	},
-		"text": {
-			"font-size": "36px"}}, on_click=inactivate)
+	# Give card a size by st column and container
+	space_1, location, space_2 = st.columns([1, 2, 1])
+
+	with location:
+		hasClicked = card('Estimated Hazard Ratio', image=data, text=card_value, styles={"card": {
+			"width": "auto",
+			"height": "300px",
+			"border-radius": "60px",
+			"overflow-wrap": "anywhere"
+		},
+			"text": {
+				"font-size": "3em"}}, on_click=inactivate)
 
 	st.write('---')
 

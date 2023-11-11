@@ -186,7 +186,7 @@ def baseline_view():
 	data = "data:image/png;base64," + encoded.decode("utf-8")
 
 	hasClicked = card('Estimated Hazard Ratio', image=data, text=card_value, styles={"card": {
-		"width": "500px",
+		"width": "40%",
 		"height": "300px",
 		"border-radius": "60px",
 		"overflow-wrap": "anywhere"

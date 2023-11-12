@@ -6,11 +6,14 @@ st.set_page_config(layout="wide")
 
 
 def run():
-    tab1, tab2 = st.tabs(['Baseline Model', 'Time-dependent Model'])
-    with tab1:
-        baseline_model.baseline_view()
-    with tab2:
-        time_dependent_model.time_dependent_view()
+    baseline_model.baseline_view()
+
+    # tab1, tab2 = st.tabs(['Baseline Model', 'Time-dependent Model'])
+    # with tab1:
+    #     baseline_model.baseline_view()
+    # with tab2: 
+    #     time_dependent_model.time_dependent_view()
+
 
 
 

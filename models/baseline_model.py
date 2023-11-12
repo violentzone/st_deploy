@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_card import card
 from math import exp
 from time import sleep
-from .label_style import styling
+# from .label_style import styling
 import base64
 
 
@@ -332,7 +332,7 @@ def baseline_view():
 
 	with st.container():
 		st.subheader('Cardiac parameters of echocardiography')
-		col1, col1_1, space1, col2, col2_1, space2, col3, col3_1 = st.columns([1, 2, 1, 1, 2, 1, 1, 2])
+		col1, col1_1, space1, col2, col2_1 = st.columns([3, 6, 3, 3, 6])
 		with col1:
 			st.write(f'###### AR ######')
 			ar_none = st.checkbox('None', key='ar_none')
@@ -346,14 +346,23 @@ def baseline_view():
 		with col2_1:
 			rvdd = st.number_input('(cm)', key='rvdd_', disabled=rvdd_none, help='RVDd, Right Ventricular Diastolic Dimension')
 
-		with col3:
+	with st.container():
+		col1, col1_1, space1, col2, col2_1 = st.columns([3, 6, 3, 3, 6])
+		with col1:
 			st.write(f'###### IVSd ######')
 			ivsd_none = st.checkbox('None', key='ivsd')
-		with col3_1:
+		with col1_1:
 			ivsd = st.number_input('(cm)', key='ivsd_', disabled=ivsd_none, help='Interventricular Septum Dimension')
+		
+		with col2:
+			st.write(f'###### LVMI ######')
+			lvmi_none = st.checkbox('None', key='lvmi')
+		with col2_1:
+			lvmi = st.number_input('(g/m2)', key='lvmi_', disabled=lvmi_none, label_visibility='visible', help='Left Ventricular Mass Index')
+		
 
 	with st.container():
-		col1, col1_1, space1, col2, col2_1, space2, col3, col3_1 = st.columns([1, 2, 1, 1, 2, 1, 1, 2])
+		col1, col1_1, space1, col2, col2_1 = st.columns([3, 6, 3, 3, 6])
 		with col1:
 			st.write(f'###### ESD ######')
 			esd_none = st.checkbox('None', key='esd')
@@ -365,15 +374,10 @@ def baseline_view():
 			lad_none = st.checkbox('None', key='lad')
 		with col2_1:
 			lad = st.number_input('(cm)', key='lad_', disabled=lad_none, label_visibility='visible', help='LAD, Left Atrial Diameter')
-
-		with col3:
-			st.write(f'###### LVMI ######')
-			lvmi_none = st.checkbox('None', key='lvmi')
-		with col3_1:
-			lvmi = st.number_input('(g/m2)', key='lvmi_', disabled=lvmi_none, label_visibility='visible', help='Left Ventricular Mass Index')
+			
 
 	with st.container():
-		col1, col1_1, space1, col2, col2_1, space2, col3, col3_1 = st.columns([1, 2, 1, 1, 2, 1, 1, 2])
+		col1, col1_1, space1, col2, col2_1 = st.columns([3, 6, 3, 3, 6])
 		with col1:
 			st.write(f'###### LVEF_2D ######')
 			lvef_2d_none = st.checkbox('None', key='lvef_2d')
@@ -400,7 +404,7 @@ def baseline_view():
 			st.write(st.session_state['risk_value'])
 			st.error('輸入有誤，請檢查欄位')
 		finally:
-			st.experimental_rerun()
+			st.rerun()
 
 # TODO: 數值計算有誤，用e (function exp()) 計算
 # TODO: 取消文字輸入再檢查機制，用數字輸入模式(DONE)
